@@ -45,6 +45,8 @@ uv run uvicorn graphql_neo4j_lineage:app --reload --port 8000
 ```
 El resolver `lineage` corre Cypher (`MATCH (a)-[:DERIVES*]->(:Model)`) y devuelve el linaje del modelo por una query GraphQL. GraphQL es la **puerta flexible**; Neo4j, el **motor de relaciones**.
 
+> En el Mini-TP 2 comparé REST y GraphQL: GraphQL devolvió solo los campos solicitados para el modelo, mientras que REST entregó metadata adicional del mismo recurso. Esto evidencia la reducción del over-fetching y la mayor flexibilidad de GraphQL para clientes específicos.
+
 ## Qué se debe entregar — Mini-TP 2 (individual, esta semana)
 
 Expón los **metadatos de tu modelo** por GraphQL:
