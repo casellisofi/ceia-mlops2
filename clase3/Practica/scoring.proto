@@ -1,0 +1,22 @@
+syntax = "proto3";
+package scoring;
+
+message Features {
+  double feature_1 = 1;
+  double feature_2 = 2;
+  double feature_3 = 3;
+}
+
+message FeatureBatch {
+  repeated Features items = 1;
+}
+
+message Prediction {
+  double prediction = 1;
+  string model_version = 2;
+}
+
+service Scoring {
+  rpc Predict(Features) returns (Prediction);
+  rpc PredictStream(FeatureBatch) returns (stream Prediction);
+}

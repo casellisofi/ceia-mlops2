@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 app = FastAPI(title="Mini TP1 - MLOps II", version="1.0.0")
 MODEL_VERSION = "v1.0.0"
@@ -12,6 +12,8 @@ class InputFeatures(BaseModel):
 
 
 class PredictionResponse(BaseModel):
+    model_config = ConfigDict(protected_namespaces=())
+
     prediction: float
     model_version: str
 
